@@ -73,6 +73,13 @@ Vagrant.configure("2") do |config|
 	      mkdir -p ~root/.ssh
               cp ~vagrant/.ssh/auth* ~root/.ssh
 	      yum install -y mdadm smartmontools hdparm gdisk
+              for num in {0..4}
+              do
+              dd if=/dev/zero of=raid_drive_${num} bs=1M count=200 
+              losetup /dev/loop${num} raid_drive_${num}
+              done
+              mdadm --create --verbose /dev/md/md0p5 -l 5 -n 4 /dev/loop{0,1,2,3}
+              mdadm --detail /dev/md/md0p5
   	  SHELL
 
       end
