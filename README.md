@@ -1,8 +1,5 @@
-# Инструкции
+# Дисковая подсистема
 
-* [Как начать Git](git_quick_start.md)
-* [Как начать Vagrant](vagrant_quick_start.md)
-
-## otus-linux
-
-Используйте этот [Vagrantfile](Vagrantfile) - для тестового стенда.
+* [Vagrantfile](Vagrantfile)
+* Конфигурация [mdadm.conf](mdadm.conf) для автосборки RAID5 при загрузке
+* Скрипт[myscriptr5] для создания RAID5 
